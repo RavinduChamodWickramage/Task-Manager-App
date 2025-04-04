@@ -36,7 +36,8 @@ public class AuthController {
                         token,
                         user.getUsername(),
                         user.getFirstName(),
-                        user.getLastName()
+                        user.getLastName(),
+                        user.getId()
                 )
         );
     }
@@ -61,7 +62,8 @@ public class AuthController {
                         token,
                         registeredUser.getUsername(),
                         registeredUser.getFirstName(),
-                        registeredUser.getLastName()
+                        registeredUser.getLastName(),
+                        registeredUser.getId()
                 )
         );
     }
