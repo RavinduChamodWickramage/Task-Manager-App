@@ -1,6 +1,7 @@
 package backend.entity;
 
 import backend.enums.TaskStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,8 +23,13 @@ public class Task {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TaskStatus status;
+    private TaskStatus status = TaskStatus.NOT_STARTED;
 
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
+    private User user;
 }
