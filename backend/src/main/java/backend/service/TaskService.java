@@ -61,11 +61,11 @@ public class TaskService {
     }
 
     @Transactional
-    public TaskDTO updateTaskStatus(Long taskId, Long userId, TaskStatus isCompleted) {
+    public TaskDTO updateTaskStatus(Long taskId, Long userId, TaskStatus status) {
         Task task = taskRepository.findByIdAndUserId(taskId, userId)
                 .orElseThrow(() -> new RuntimeException("Task not found or unauthorized"));
 
-        task.setStatus(isCompleted);
+        task.setStatus(status);
         Task updatedTask = taskRepository.save(task);
 
         return modelMapper.map(updatedTask, TaskDTO.class);
