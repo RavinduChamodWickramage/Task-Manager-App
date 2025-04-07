@@ -1,6 +1,45 @@
 <div class="min-h-screen bg-gray-50">
   <app-navbar></app-navbar>
+
+  <div *ngIf="router.url === '/'" class="home-content">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+          Manage Your Tasks Effortlessly
+        </h1>
+        <p class="mt-5 max-w-xl mx-auto text-xl text-gray-500">
+          A simple yet powerful task management application to organize your work and personal life.
+        </p>
+        <div class="mt-8 flex justify-center space-x-4">
+          <a
+            routerLink="/register"
+            class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
+          >
+            Get Started
+          </a>
+          <a
+            routerLink="/login"
+            class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10"
+          >
+            Sign In
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <section class="bg-white py-12">
+    </section>
+  </div>
+
   <div class="container mx-auto p-4">
     <router-outlet></router-outlet>
   </div>
+
+  <footer *ngIf="router.url === '/'" class="bg-gray-100 mt-12">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-base text-gray-500">
+        &copy; 2025 TaskMaster. All rights reserved.
+      </p>
+    </div>
+  </footer>
 </div>
